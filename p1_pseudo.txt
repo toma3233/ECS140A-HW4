@@ -1,0 +1,17 @@
+enumerator TokenType:
+    CONSTANT
+    OPERATOR
+    VARIABLE
+    SPECIAL
+
+class Token:
+    constructor (user_input, id):
+        self.text = user_input
+        self.id = id
+        Assign appropriate token type to self.token_type
+
+    define custom print function
+
+Parse input string
+Tokenize each character
+print each of them out
