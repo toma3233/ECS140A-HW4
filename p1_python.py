@@ -27,7 +27,7 @@ class Token:
         
 
 
-input = "d:= 1*1 / 1 * 0 == 0"
+input = "d:= 1*1 / 1 * 0 == 0;"
 input = input.replace(" ", "")
 id = 0
 i = 0

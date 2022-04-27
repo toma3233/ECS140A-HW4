@@ -56,14 +56,15 @@ impl Token {
 
 
 fn main() {
-    let mut input:String = "c:=1 * 1 <= 0* 0 + 0*0;".to_string();
+    let mut input:String = "d:= 1*1 / 1 * 0 == 0;".to_string();
+    let ops = vec!["=".to_string(), "<".to_string(), ">".to_string(), "!".to_string(), ":".to_string()];
     input = input.replace(" ", "");
     let len:i32 = input.chars().count() as i32;
     let mut  i:i32 = 0;
     let mut id:i32 = 0;
     while i < len {
         let mut letter:String = input.chars().nth(i as usize).unwrap().to_string();
-        if i < len - 1 && input.chars().nth((i + 1) as usize).unwrap().to_string() == "=" {
+        if i < len - 1 && input.chars().nth((i + 1) as usize).unwrap().to_string() == "=" && ops.contains(&letter) {
             let b_letter:&str = "=";
             letter.push_str(b_letter);
             i += 1
