@@ -27,7 +27,7 @@ class Token:
         
 
 
-input = "c:=1 * 1 <= 0* 0 + 0*0;"
+input = "d:= 1*1 / 1 * 0 == 0"
 input = input.replace(" ", "")
 id = 0
 i = 0
@@ -35,7 +35,7 @@ i = 0
 while i < len(input):
     letter = input[i]
     # Accounting for operators with two characters
-    if i < len(input) - 1 and input[i+1] == "=":
+    if i < len(input) - 1 and input[i+1] == "=" and input [i] in ["=", "<", ">", "!", ":"]:
         letter = input[i] + input [i+1]
         i = i + 1
     # Create Token obj for each token
