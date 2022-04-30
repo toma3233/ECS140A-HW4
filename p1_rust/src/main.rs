@@ -59,9 +59,9 @@ impl Token {
     }
 }
 
-
-fn main() {
-    let mut input:String = "d := 0*0 <=  0/ 1 * 1;".to_string();
+fn parse_and_return(inp: String) -> Vec<Token> {
+    let mut tokens = Vec::new();
+    let mut input:String = inp.to_string();
     // Potential operators with two chars
     let ops = vec!["=".to_string(), "<".to_string(), ">".to_string(), "!".to_string(), ":".to_string()];
     input = input.replace(" ", "");
@@ -79,11 +79,23 @@ fn main() {
         }
         // Create new Token object
         let tok = Token::new(&letter, id);
-        // Print Token object
-        tok.print_self();
+        // Append token to tokens vector
+        tokens.push(tok);
         id += 1;
         i += 1;
 
     }
+
+    return tokens;
+}
+
+
+fn main() {
+    let inp:String = "b:= 1*1;".to_string();
+    let tokens:Vec<Token> = parse_and_return(inp);
+    for tok in &tokens {
+        tok.print_self();
+    }
+    
    
 }
